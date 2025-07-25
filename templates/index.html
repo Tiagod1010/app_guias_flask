@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<h2>Bienvenido a la Plataforma de Guías SENA</h2>
+<p>Desde aquí puedes registrarte, iniciar sesión y gestionar tus guías.</p>
+<a href="{{ url_for('auth.login') }}" class="btn btn-primary">Iniciar sesión</a>
+<a href="{{ url_for('auth.registro') }}" class="btn btn-success">Registrarse</a>
+{% endblock %}

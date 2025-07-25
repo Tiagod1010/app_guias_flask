@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block title %}Subir Guía{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="card-title text-center mb-4">📤 Subir Nueva Guía</h3>
+
+        <form method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre de la guía:</label>
+            <input type="text" name="nombre" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción:</label>
+            <input type="text" name="descripcion" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="programa" class="form-label">Programa:</label>
+            <select class="form-select" name="programa" required>
+                <option value="">-- Selecciona un Programa --</option>
+                <option>Análisis y Desarrollo de Software</option>
+                <option>Gestión Integrada de la Calidad, Medio Ambiente, Seguridad y Salud Ocupacional</option>
+                <option>Diseño e Integración de Multimedia</option>
+                <option>Diseño de Productos Industriales</option>
+                <option>Gestión Administrativa</option>
+                <option>Gestión del Talento Humano</option>
+                <option>Contabilidad y Finanzas</option>
+                <option>Producción Agropecuaria</option>
+                <option>Desarrollo Publicitario</option>
+                <option>Gestión de Mercados</option>
+                <option>Gestión de Empresas Agropecuarias</option>
+                <option>Formulación de Proyectos</option>
+                <option>Producción de Multimedia</option>
+                <option>Seguridad y Salud en el Trabajo</option>
+                <option>Logística Empresarial</option>
+                <option>Construcción</option>
+                <option>Mecánica Industrial</option>
+                <option>Electricidad Industrial</option>
+                <option>Gestión Ambiental</option>
+                <option>Producción de Textiles</option>
+                <option>Reparación de Equipos Electrónicos</option>
+                <option>Animación Digital</option>
+                <option>Producción Pecuaria</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="archivo" class="form-label">Archivo PDF:</label>
+            <input type="file" name="archivo" accept=".pdf" class="form-control" required>
+          </div>
+
+          <div class="d-flex justify-content-between mt-4">
+            <a href="{{ url_for('guias.listar_guias') }}" class="btn btn-secondary">⟵ Volver</a>
+            <button type="submit" class="btn btn-success">📤 Subir Guía</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

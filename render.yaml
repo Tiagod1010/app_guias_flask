@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: guias-app
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    envVars:
+      - key: MONGO_URI
+        value: "${MONGO_URI}"
+      - key: SECRET_KEY
+        value: "${SECRET_KEY}"
+      - key: MAIL_SERVER
+        value: "smtp.gmail.com"
+      - key: MAIL_PORT
+        value: "587"
+      - key: MAIL_USERNAME
+        value: "${MAIL_USERNAME}"
+      - key: MAIL_PASSWORD
+        value: "${MAIL_PASSWORD}"
+      - key: MAIL_USE_TLS
+        value: "True"

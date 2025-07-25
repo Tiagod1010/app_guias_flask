@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% block title %}Listado de Guías{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm mb-5">
+  <div class="card-body">
+    <h2 class="card-title mb-4">📚 Guías Subidas</h2>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped align-middle" id="tablaGuias">
+        <thead class="table-success text-center">
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Programa</th>
+            <th>Fecha</th>
+            <th>Instructor / Regional</th>
+            <th>Archivo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for guia in guias %}
+          <tr>
+            <td>{{ guia.nombre }}</td>
+            <td>{{ guia.descripcion }}</td>
+            <td>{{ guia.programa }}</td>
+            <td>{{ (guia.fecha - timedelta(hours=5)).strftime('%d/%m/%Y %I:%M %p') }}</td>
+            <td>
+              {{ guia.instructor.nombre }}<br>
+              <small class="text-muted">({{ guia.instructor.regional }})</small>
+            </td>
+            <td class="text-center">
+              <a href="{{ url_for('guias.descargar_pdf', filename=guia.archivo) }}" target="_blank" class="btn btn-outline-primary btn-sm">📄 Ver PDF</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-4 d-flex justify-content-between">
+      <a href="/" class="btn btn-secondary">🏠 Ir al Inicio</a>
+      <a href="{{ url_for('auth.login') }}" class="btn btn-outline-success">🔐 Iniciar Sesión</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  $(document).ready(function () {
+    $('#tablaGuias').DataTable({
+      language: {
+        url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json'
+      }
+    });
+  });
+</script>
+{% endblock %}
