@@ -1,2 +1,42 @@
-.env
-requirements.txt
+# Entornos virtuales
+env/
+venv/
+.venv/
+entorno/
+
+# Archivos de configuración locales
+*.env
+*.env.*
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de logs
+*.log
+
+# Archivos temporales de usuario
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Archivos subidos (por seguridad, Render no necesita subir archivos locales)
+static/guias/
+static/pdfs/
+uploads/
+
+# VSCode
+.vscode/
+
+# Archivos de test
+.coverage
+htmlcov/
+
+# SQLite (por si acaso en pruebas)
+*.sqlite3
