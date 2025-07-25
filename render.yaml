@@ -3,19 +3,19 @@ services:
     name: guias-app
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "python app.py"
+    startCommand: "gunicorn app:app"
     envVars:
-      - key: MONGO_URI
-        value: "${MONGO_URI}"
+      - key: MONGODB_URI
+        fromEnv: MONGODB_URI
       - key: SECRET_KEY
-        value: "${SECRET_KEY}"
+        fromEnv: SECRET_KEY
       - key: MAIL_SERVER
         value: "smtp.gmail.com"
       - key: MAIL_PORT
         value: "587"
       - key: MAIL_USERNAME
-        value: "${MAIL_USERNAME}"
+        fromEnv: MAIL_USERNAME
       - key: MAIL_PASSWORD
-        value: "${MAIL_PASSWORD}"
+        fromEnv: MAIL_PASSWORD
       - key: MAIL_USE_TLS
         value: "True"

@@ -1,0 +1,46 @@
+# Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+venv/
+env/
+entorno/
+.venv/
+
+# Entorno de desarrollo
+.env
+*.env
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de base de datos temporales
+*.sqlite3
+instance/
+
+# Archivos de subida temporales o cache
+uploads/
+*.log
+
+# Archivos de configuración del editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de despliegue y control de versiones
+*.zip
+*.tar.gz
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Archivos estáticos generados
+/static/guias/*
+!static/guias/.gitkeep
+/static/pdfs/*
+!static/pdfs/.gitkeep
